@@ -23,9 +23,9 @@ my %WriteMakefileArgs = (
   'NAME' => 'Mason::Plugin::Cache',
   'PREREQ_PM' => {
     'CHI' => '0',
-    'Mason' => '2.00'
+    'Mason' => '2.05'
   },
-  'VERSION' => '0.01',
+  'VERSION' => '0.02',
   'test' => {
     'TESTS' => 't/*.t'
   }

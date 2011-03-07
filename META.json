@@ -27,7 +27,7 @@
       "runtime" : {
          "requires" : {
             "CHI" : 0,
-            "Mason" : "2.00"
+            "Mason" : "2.05"
          }
       },
       "test" : {
@@ -48,6 +48,6 @@
          "web" : "https://github.com/jonswar/perl-mason-plugin-cache"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
 

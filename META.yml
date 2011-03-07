@@ -18,8 +18,8 @@ no_index:
     - lib/Mason/Plugin/Cache
 requires:
   CHI: 0
-  Mason: 2.00
+  Mason: 2.05
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Mason-Plugin-Cache
   repository: git://github.com/jonswar/perl-mason-plugin-cache.git
-version: 0.01
+version: 0.02
