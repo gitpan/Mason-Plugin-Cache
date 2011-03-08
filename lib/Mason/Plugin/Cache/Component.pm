@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::Component;
 BEGIN {
-  $Mason::Plugin::Cache::Component::VERSION = '0.02';
+  $Mason::Plugin::Cache::Component::VERSION = '0.03';
 }
 use Mason::PluginRole;
 

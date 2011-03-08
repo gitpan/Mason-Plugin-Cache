@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::t::Basic;
 BEGIN {
-  $Mason::Plugin::Cache::t::Basic::VERSION = '0.02';
+  $Mason::Plugin::Cache::t::Basic::VERSION = '0.03';
 }
 use Test::Class::Most parent => 'Mason::Test::Class';
 

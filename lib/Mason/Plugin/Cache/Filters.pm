@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::Filters;
 BEGIN {
-  $Mason::Plugin::Cache::Filters::VERSION = '0.02';
+  $Mason::Plugin::Cache::Filters::VERSION = '0.03';
 }
 use Mason::PluginRole;
 

@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
     'CHI' => '0',
     'Mason' => '2.05'
   },
-  'VERSION' => '0.02',
+  'VERSION' => '0.03',
   'test' => {
     'TESTS' => 't/*.t'
   }

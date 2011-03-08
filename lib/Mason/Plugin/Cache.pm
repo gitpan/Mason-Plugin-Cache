@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache;
 BEGIN {
-  $Mason::Plugin::Cache::VERSION = '0.02';
+  $Mason::Plugin::Cache::VERSION = '0.03';
 }
 use Moose;
 with 'Mason::Plugin';
@@ -17,7 +17,7 @@ Mason::Plugin::Cache - Provide component cache object and filter
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
