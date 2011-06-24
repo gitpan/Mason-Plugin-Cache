@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache;
 BEGIN {
-  $Mason::Plugin::Cache::VERSION = '0.03';
+  $Mason::Plugin::Cache::VERSION = '0.04';
 }
 use Moose;
 with 'Mason::Plugin';
@@ -17,7 +17,7 @@ Mason::Plugin::Cache - Provide component cache object and filter
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -29,9 +29,9 @@ version 0.03
 
     ...
 
-    <% $.Cache('key2', '1 hour') { %>
+    % $.Cache('key2', '1 hour') {{
       <!-- this will be cached for an hour -->
-    </%>
+    % }}
 
 =head1 DESCRIPTION
 
@@ -56,7 +56,7 @@ Class used to create a cache. Defaults to L<CHI|CHI>.
 
 =back
 
-=head1 COMPONENT METHODS
+=head1 COMPONENT CLASS METHODS
 
 =over
 
@@ -67,22 +67,51 @@ Parameters to this method, if any, are combined with L<cache_defaults> and
 passed to the L<cache_root_class> constructor.  The cache object is memoized
 when no parameters are passed.
 
+    my $result = $.cache->get('key');
+
+=back
+
+=head1 REQUEST METHODS
+
+=over
+
+=item cache
+
+Same as calling C<cache> on the current component class. This usage will be
+familiar to Mason 1 users.
+
+    my $result = $m->cache->get('key');
+
 =back
 
 =head1 FILTERS
 
 =over
 
-=item Cache ($key, $set_options, [%cache_params])
+=item Cache ($key, $options, [%cache_params])
 
 Caches the content using C<< $self->cache >> and the supplied cache I<$key>.
-I<$set_options>, if provided, is passed as the third argument to C<<
-$self->cache->set >> - it is usually an expiration time. I<%cache_params>, if
-any, are passed to C<< $self->cache >>.
 
-    <% $.Cache($my_key, '1 hour') { %>
+I<$options> is a scalar or hash reference. If a scalar, it is treated as the
+C<expires_in> duration and passed as the third argument to C<set>. If it is a
+hash reference, it may contain name/value pairs for both C<get> and C<set>.
+
+I<%cache_params>, if any, are passed to C<< $self->cache >>.
+
+    % $.Cache($my_key, '1 hour') {{
       <!-- this will be cached for an hour -->
-    </%>
+    % }}
+
+    % $.Cache($my_key, { expire_if => sub { $.refresh } }, driver => 'RawMemory') {{
+      <!-- this will be cached until $.refresh is true -->
+    % }}
+
+If neither I<$key> nor I<$options> are passed, the key is set to 'Default' and
+the cache never expires.
+
+    % $.Cache() {{
+      <!-- cache this forever, or until explicitly removed -->
+    % }}
 
 =back
 
