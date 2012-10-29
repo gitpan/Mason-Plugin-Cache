@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::t::Basic;
 BEGIN {
-  $Mason::Plugin::Cache::t::Basic::VERSION = '0.04';
+  $Mason::Plugin::Cache::t::Basic::VERSION = '0.05';
 }
 use Test::Class::Most parent => 'Mason::Test::Class';
 
@@ -114,4 +114,27 @@ foo = <% $m->defer(sub { $Foo::foo }) %>
     $self->test_existing_comp( path => $path, expect => 'foo = 6' );
     $Foo::foo = 10;
     $self->test_existing_comp( path => $path, expect => 'foo = 6' );
+}
+
+sub test_cache_memoization : Tests {
+    my $self = shift;
+    $self->run_test_in_comp(
+        path => '/cache/memoize.mc',
+        test => sub {
+            my $comp = shift;
+
+            is( $comp->cache_memoized, undef, 'Cache not memoized by default' );
+            $comp->cache_memoized('buu!');
+            is( $comp->cache_memoized, 'buu!', 'Memoization updated' );
+        }
+    );
+
+    $self->run_test_in_comp(
+        path => '/cache/memoize.mc',
+        test => sub {
+            my $comp = shift;
+
+            is( $comp->cache_memoized, 'buu!', 'Cache memoization works across requests' );
+        }
+    );
 }

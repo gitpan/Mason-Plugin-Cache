@@ -1,9 +1,11 @@
 package Mason::Plugin::Cache;
 BEGIN {
-  $Mason::Plugin::Cache::VERSION = '0.04';
+  $Mason::Plugin::Cache::VERSION = '0.05';
 }
 use Moose;
 with 'Mason::Plugin';
+
+__PACKAGE__->meta->make_immutable();
 
 1;
 
@@ -17,7 +19,7 @@ Mason::Plugin::Cache - Provide component cache object and filter
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 

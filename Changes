@@ -2,6 +2,11 @@ Revision history for Mason-Plugin-Cache
 
 ** denotes an incompatible change
 
+0.05  Oct 29, 2012
+
+- Make sure cache memoization works across requests - perl-mason-plugin-cache/pull/1
+  (Pedro Melo)
+
 0.04  Jun 23, 2011
 
 - Switch to new line-based filter syntax (Mason 2.08+)

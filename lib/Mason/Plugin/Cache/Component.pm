@@ -1,12 +1,13 @@
 package Mason::Plugin::Cache::Component;
 BEGIN {
-  $Mason::Plugin::Cache::Component::VERSION = '0.04';
+  $Mason::Plugin::Cache::Component::VERSION = '0.05';
 }
 use Mason::PluginRole;
 
 my %memoized;
 
 method cache_memoized ($class:) {
+    $class = ref($class) || $class;
     if (@_) { $memoized{$class} = $_[0] }
     return $memoized{$class};
 }

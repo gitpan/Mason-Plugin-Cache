@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::Request;
 BEGIN {
-  $Mason::Plugin::Cache::Request::VERSION = '0.04';
+  $Mason::Plugin::Cache::Request::VERSION = '0.05';
 }
 use Mason::PluginRole;
 

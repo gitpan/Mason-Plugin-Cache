@@ -2,7 +2,7 @@ NAME
     Mason::Plugin::Cache - Provide component cache object and filter
 
 VERSION
-    version 0.04
+    version 0.05
 
 SYNOPSIS
         my $result = $.cache->get('key');

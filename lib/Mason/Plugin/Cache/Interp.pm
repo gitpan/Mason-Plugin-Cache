@@ -1,6 +1,6 @@
 package Mason::Plugin::Cache::Interp;
 BEGIN {
-  $Mason::Plugin::Cache::Interp::VERSION = '0.04';
+  $Mason::Plugin::Cache::Interp::VERSION = '0.05';
 }
 use CHI;
 use Mason::Util qw(catdir);
